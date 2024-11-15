@@ -1,0 +1,3 @@
+[submodule "apps/tailadmin-console"]
+	path = apps/tailadmin-console
+	url = https://github.com/azhe403/tailadmin-nextjs-admin-dashboard.git
