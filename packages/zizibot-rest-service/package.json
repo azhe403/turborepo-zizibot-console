@@ -1,11 +1,7 @@
 {
   "name": "@zizibot/rest-client",
   "version": "1.0.0",
-  "private": true,
   "description": "ZiziBot REST Client",
-  "files": [
-    "dist/**"
-  ],
   "scripts": {
     "build": "tsup",
     "clean": "rimraf dist",
@@ -13,11 +9,11 @@
     "tsc": "tsc -p ./tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "dist/**"
+  ],
   "exports": {
     "./internal/user-rest": "./src/internal/user-rest.ts"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "jest": {
     "preset": "@repo/jest-presets/node"
