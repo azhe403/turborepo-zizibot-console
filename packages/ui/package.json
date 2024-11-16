@@ -8,7 +8,8 @@
     "./code": "./src/code.tsx",
     "./redux-provider": "./src/provider/ReduxProvider.tsx",
     "./telegram-login": "./src/telegram/TelegramLogin.tsx",
-    "./session-listener": "./src/telegram/SessionListener.tsx"
+    "./session-listener": "./src/telegram/SessionListener.tsx",
+    "./features/pendekin/list-pendekin": "./src/features/pendekin/ListPendekin.tsx"
   },
   "scripts": {
     "build": "tsup",
