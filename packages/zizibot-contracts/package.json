@@ -1,8 +1,7 @@
 ﻿{
-  "name": "zizibot-contracts",
+  "name": "@zizibot/contracts",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "ZiziBot Contracts",
   "scripts": {
     "clean": "rimraf dist",
     "tsc": "tsc -p ./tsconfig.json",

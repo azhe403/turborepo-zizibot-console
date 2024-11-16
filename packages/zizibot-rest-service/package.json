@@ -1,18 +1,23 @@
 ﻿{
-  "name": "zizibot-rest-service",
+  "name": "@zizibot/rest-client",
   "version": "1.0.0",
-  "description": "ZiziBot REST Service",
-  "main": "index.js",
+  "description": "ZiziBot REST Client",
   "scripts": {
     "clean": "rimraf dist",
     "tsc": "tsc -p ./tsconfig.json",
     "build": "npm-run-all clean tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "exports": {
+    "./internal/user-rest": "./src/internal/user-rest.ts"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
+    "@zizibot/contracts": "workspace:*",
     "axios": "^1.7.7",
-    "js-cookie": "^3.0.5",
-    "zizibot-contracts": "workspace:*"
+    "js-cookie": "^3.0.5"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
