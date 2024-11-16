@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "turbo run dev",
+    "tailadmin-console": "turbo run dev --filter=@apps/tailadmin-console --filter=\"./packages/*\"",
     "build": "turbo run build",
     "clean": "turbo run clean",
     "lint": "turbo run lint",

@@ -22,7 +22,11 @@
       ]
     },
     "dev": {
-      "cache": false,
+      "cache": true,
+      "persistent": true
+    },
+    "tailadmin-console": {
+      "cache": true,
       "persistent": true
     },
     "clean": {
