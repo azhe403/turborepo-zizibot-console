@@ -1,28 +1,42 @@
 {
-  "name": "@repo/ui",
+  "name": "@zizibot/ui",
   "version": "0.0.0",
   "private": true,
   "exports": {
     "./button": "./src/button.tsx",
     "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx"
+    "./code": "./src/code.tsx",
+    "./redux-provider": "./src/provider/ReduxProvider.tsx",
+    "./telegram-login": "./src/telegram/TelegramLogin.tsx",
+    "./session-listener": "./src/telegram/SessionListener.tsx"
   },
   "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "clean": "rimraf dist",
     "lint": "eslint . --max-warnings 0",
     "generate:component": "turbo gen react-component"
+  },
+  "dependencies": {
+    "@zizibot/store": "workspace:*",
+    "js-cookie": "^3.0.5",
+    "next": "^15.0.3",
+    "react": "^18.2.0",
+    "react-redux": "^9.1.2"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "@turbo/gen": "^1.12.4",
-    "@types/node": "^20.11.24",
     "@types/eslint": "^8.56.5",
+    "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20.11.24",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
+    "@zizibot/rest-client": "workspace:*",
+    "@zizibot/store": "workspace:*",
     "eslint": "^8.57.0",
+    "tsup": "^8.3.5",
     "typescript": "5.5.4"
-  },
-  "dependencies": {
-    "react": "^18.2.0"
   }
 }

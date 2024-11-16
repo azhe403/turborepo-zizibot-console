@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "next dev --turbo --port 3002",
     "build": "next build",
+    "clean": "rimraf .next",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
+    "@zizibot/ui": "workspace:*",
     "next": "14.2.6",
     "react": "18.3.1",
     "react-dom": "18.3.1"

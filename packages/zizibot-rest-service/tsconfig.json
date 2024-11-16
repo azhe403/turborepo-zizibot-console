@@ -1,20 +1,10 @@
 ﻿{
+  "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
-    "target": "es2016",
-    "module": "NodeNext",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "NodeNext",
-    "strict": true,
-    "skipLibCheck": true,
-    "outDir": "dist",
-    "rootDir": "src"
+    "lib": ["ES2015"],
+    "outDir": "./dist",
+    "types": ["jest", "node"]
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+  "include": ["."],
+  "exclude": ["node_modules", "dist"],
 }
