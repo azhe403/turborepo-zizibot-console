@@ -23,6 +23,9 @@
       ]
     },
     "dev": {
+      "env": [
+        "API_BASE_URL"
+      ],
       "cache": true,
       "persistent": true
     },
