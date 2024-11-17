@@ -2,6 +2,8 @@ import { AppSidebar } from '@/components/app-sidebar';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Separator } from '@/components/ui/separator';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { UserCircle } from 'lucide-react';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 
 export default function Page() {
   return (
@@ -25,6 +27,18 @@ export default function Page() {
                 </BreadcrumbItem>
               </BreadcrumbList>
             </Breadcrumb>
+          </div>
+          <div className="absolute right-3 flex items-center gap-3 2xsm:gap-7">
+            <Popover>
+              <PopoverTrigger>
+                <button
+                  className="rounded-full p-2 hover:bg-accent"
+                  aria-label="User info">
+                  <UserCircle className="h-6 w-6" />
+                </button>
+              </PopoverTrigger>
+              <PopoverContent>Place content for the popover here.</PopoverContent>
+            </Popover>
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4">
