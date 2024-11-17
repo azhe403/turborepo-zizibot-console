@@ -12,7 +12,7 @@
   "dependencies": {
     "@zizibot/ui": "workspace:*",
     "@zizibot/rest-client": "workspace:*",
-    "next": "14.2.6",
+    "next": "catalog:",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },

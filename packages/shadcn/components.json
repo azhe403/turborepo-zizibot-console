@@ -11,10 +11,10 @@
     "prefix": ""
   },
   "aliases": {
-    "components": "@repo/ui/components",
-    "ui": "@repo/ui/components/ui",
-    "utils": "@repo/ui/lib/utils",
-    "lib": "@repo/ui/lib",
-    "hooks": "@repo/ui/hooks"
+    "components": "@zizibot/shadcn/components",
+    "ui": "@zizibot/shadcn/components/ui",
+    "utils": "@zizibot/shadcn/lib/utils",
+    "lib": "@zizibot/shadcn/lib",
+    "hooks": "@zizibot/shadcn/hooks"
   }
 }

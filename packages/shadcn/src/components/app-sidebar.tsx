@@ -13,7 +13,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail
-} from '@/components/ui/sidebar';
+} from '@zizibot/shadcn/components/ui/sidebar';
 
 // This is sample data.
 const data = {
@@ -168,7 +168,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   <GalleryVerticalEnd className="size-4" />
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
-                  <span className="font-semibold">Console</span>
+                  <span className="font-semibold">Documentation</span>
                   <span className="">v1.0.0</span>
                 </div>
               </a>
