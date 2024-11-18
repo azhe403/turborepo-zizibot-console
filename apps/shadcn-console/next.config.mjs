@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@zizibot/shadcn']
+  transpilePackages: ["@zizibot/shadcn"],
 };
 
 export default nextConfig;

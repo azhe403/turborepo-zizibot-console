@@ -3,37 +3,16 @@
   "ui": "tui",
   "tasks": {
     "build": {
-      "env": ["API_BASE_URL"],
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        ".env*"
-      ],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**",
-        "dist/**"
-      ]
+      "dependsOn": ["^build"],
+      "inputs": ["$TURBO_DEFAULT$", ".env*"],
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
-      "dependsOn": [
-        "^lint"
-      ]
+      "dependsOn": ["^lint"]
     },
     "dev": {
-      "env": [
-        "API_BASE_URL"
-      ],
-      "cache": true,
+      "cache": false,
       "persistent": true
-    },
-    "tailadmin-console": {
-      "cache": true,
-      "persistent": true
-    },
-    "clean": {
     }
   }
 }

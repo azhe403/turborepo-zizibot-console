@@ -1,7 +1,10 @@
-import DefaultLayout from '@/components/layouts/default-layout';
+import MainLayout from "@zizibot/shadcn/components/main-layout";
 
 export default function Page() {
   return (
-    <DefaultLayout children={undefined}></DefaultLayout>
+    <main>
+      {/*<Button>Click me</Button>*/}
+      <MainLayout></MainLayout>
+    </main>
   );
 }

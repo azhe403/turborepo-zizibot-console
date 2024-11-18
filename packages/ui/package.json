@@ -1,40 +1,45 @@
 {
-  "name": "@zizibot/ui",
+  "name": "@zizibot/shadcn",
   "version": "0.0.0",
   "private": true,
-  "exports": {
-    "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx",
-    "./redux-provider": "./src/provider/ReduxProvider.tsx",
-    "./telegram-login": "./src/telegram/TelegramLogin.tsx",
-    "./session-listener": "./src/telegram/SessionListener.tsx",
-    "./features/pendekin/list-pendekin": "./src/features/pendekin/ListPendekin.tsx"
-  },
   "scripts": {
-    "lint": "eslint . --max-warnings 0",
-    "generate:component": "turbo gen react-component"
+    "ui": "pnpm dlx shadcn@latest",
+    "lint": "eslint ."
   },
-  "dependencies": {
-    "@zizibot/store": "workspace:*",
-    "js-cookie": "^3.0.5",
-    "next": "catalog:",
-    "react": "^18.2.0",
-    "react-redux": "^9.1.2"
+  "peerDependencies": {
+    "react": "^18"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^1.12.4",
-    "@types/eslint": "^8.56.5",
-    "@types/js-cookie": "^3.0.6",
-    "@types/node": "^20.11.24",
-    "@types/react": "^18.2.61",
-    "@types/react-dom": "^18.2.19",
-    "@zizibot/rest-client": "workspace:*",
-    "@zizibot/store": "workspace:*",
-    "eslint": "^8.57.0",
-    "tsup": "^8.3.5",
-    "typescript": "5.5.4"
+    "@types/node": "catalog:",
+    "@types/react": "catalog:react18",
+    "autoprefixer": "^10",
+    "postcss": "^8",
+    "postcss-load-config": "^6",
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:"
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-tooltip": "^1.1.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "catalog:",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "exports": {
+    "./globals.css": "./src/globals.css",
+    "./postcss.config": "./postcss.config.mjs",
+    "./tailwind.config": "./tailwind.config.ts",
+    "./lib/*": "./src/lib/*.ts",
+    "./hooks/*": [
+      "./src/hooks/*.ts",
+      "./src/hooks/*.tsx"
+    ],
+    "./components/*": "./src/components/*.tsx"
   }
 }
