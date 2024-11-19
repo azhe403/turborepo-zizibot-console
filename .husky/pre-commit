@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-echo "Running pre-push hook"
+echo "Running pre-commit hook"
 turbo build

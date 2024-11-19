@@ -12,11 +12,12 @@
     "clean": "turbo run clean",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "pnpm dlx husky init"
+    "prepare": "husky"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "husky": "^9.1.7",
     "prettier": "catalog:",
     "turbo": "2.1.1"
   },
