@@ -12,8 +12,7 @@
     "clean": "turbo run clean",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "husky:prepare": "pnpm dlx husky init",
-    "prepare": "husky"
+    "prepare": "pnpm dlx husky init"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
