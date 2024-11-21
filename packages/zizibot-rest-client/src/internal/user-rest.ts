@@ -4,7 +4,6 @@ import { TelegramUserLogin, TelegramUserLoginResponse, UserSessionInfo } from '@
 
 export async function validateTelegramSession(data: TelegramUserLogin) {
   const response = await apiClient.post<ApiResponse<TelegramUserLoginResponse>>('/api/user/session/telegram', data);
-
   console.debug('auth telegram', response);
 
   return response.data;
@@ -17,6 +16,7 @@ export async function validateCurrentSession() {
 
 export async function getUserInfo() {
   const response = await apiClient.get<ApiResponse<UserSessionInfo>>('/api/user/info');
-  console.debug(getUserInfo.name, response.status);
+  console.debug('get user info', response);
+
   return response.data;
 }

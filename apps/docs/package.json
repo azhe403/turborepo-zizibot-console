@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@zizibot/shadcn": "workspace:*",
-    "next": "14.2.8",
+    "next": "catalog:",
     "react": "catalog:react18",
     "react-dom": "catalog:react18"
   },

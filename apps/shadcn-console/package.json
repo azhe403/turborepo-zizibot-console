@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 7130",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
     "@zizibot/shadcn": "workspace:*",
-    "next": "14.2.8",
+    "@zizibot/rest-client": "workspace:*",
+    "next": "catalog:",
     "react": "catalog:react18",
     "react-dom": "catalog:react18"
   },
