@@ -19,22 +19,21 @@
     "@zizibot/store": "workspace:*",
     "js-cookie": "^3.0.5",
     "next": "catalog:",
-    "react": "^18.2.0",
+    "react": "catalog:react18",
     "react-redux": "^9.1.2"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^1.12.4",
+    "@turbo/gen": "^2.3.1",
     "@types/eslint": "^8.56.5",
     "@types/js-cookie": "^3.0.6",
-    "@types/node": "^20.11.24",
-    "@types/react": "^18.2.61",
-    "@types/react-dom": "^18.2.19",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
     "@zizibot/rest-client": "workspace:*",
     "@zizibot/store": "workspace:*",
     "eslint": "^8.57.0",
-    "tsup": "^8.3.5",
-    "typescript": "5.5.4"
+    "typescript": "catalog:"
   }
 }

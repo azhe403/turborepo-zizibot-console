@@ -13,17 +13,17 @@
     "@zizibot/ui": "workspace:*",
     "@zizibot/rest-client": "workspace:*",
     "next": "catalog:",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:react18",
+    "@types/react-dom": "catalog:react18",
     "eslint": "^8",
     "eslint-config-next": "14.2.6",
-    "typescript": "5.5.4"
+    "typescript": "catalog:"
   }
 }
