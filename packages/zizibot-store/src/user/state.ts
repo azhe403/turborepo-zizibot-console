@@ -1,4 +1,4 @@
-﻿import {createSlice, Slice} from '@reduxjs/toolkit';
+﻿import { createSlice, Slice } from '@reduxjs/toolkit';
 
 export interface UserState {
   id: number;

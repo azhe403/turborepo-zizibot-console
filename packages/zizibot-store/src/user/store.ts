@@ -1,5 +1,5 @@
 ﻿import { configureStore } from '@reduxjs/toolkit';
-import {userSlice} from "./slicers/user";
+import { userSlice } from '@zizibot/store/user/state';
 
 export const makeStore = () => {
   return configureStore({
