@@ -1,35 +1,15 @@
 "use client";
 
-import { AppSidebar } from "@zizibot/shadcn/components/app-sidebar";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@zizibot/shadcn/components/ui/breadcrumb";
-import { Separator } from "@zizibot/shadcn/components/ui/separator";
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from "@zizibot/shadcn/components/ui/sidebar";
-import React from "react";
-import { Moon, Sun, User } from "lucide-react";
-import { Button } from "@zizibot/shadcn/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@zizibot/shadcn/components/ui/dropdown-menu";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@zizibot/shadcn/components/ui/avatar";
-import { useTheme } from "next-themes";
+import { AppSidebar } from '@zizibot/shadcn/components/app-sidebar';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@zizibot/shadcn/components/ui/breadcrumb';
+import { Separator } from '@zizibot/shadcn/components/ui/separator';
+import { SidebarInset, SidebarProvider, SidebarTrigger } from '@zizibot/shadcn/components/ui/sidebar';
+import React from 'react';
+import { Moon, Sun, User } from 'lucide-react';
+import { Button } from '@zizibot/shadcn/components/ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@zizibot/shadcn/components/ui/dropdown-menu';
+import { Avatar, AvatarFallback, AvatarImage } from '@zizibot/shadcn/components/ui/avatar';
+import { useTheme } from 'next-themes';
 
 export default function MainLayout({
   children,

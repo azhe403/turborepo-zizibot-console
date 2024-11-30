@@ -1,4 +1,4 @@
-import { cn } from "@zizibot/shadcn/lib/utils"
+import { cn } from '@zizibot/shadcn/lib/utils';
 
 function Skeleton({
   className,

@@ -1,5 +1,5 @@
-import * as React from "react"
-import { GalleryVerticalEnd } from "lucide-react";
+import * as React from 'react';
+import { GalleryVerticalEnd } from 'lucide-react';
 
 import {
   Sidebar,
@@ -12,9 +12,9 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-  SidebarRail,
-} from "@zizibot/shadcn/components/ui/sidebar"
-import Link from "next/link";
+  SidebarRail
+} from '@zizibot/shadcn/components/ui/sidebar';
+import Link from 'next/link';
 
 // This is sample data.
 const data = {
