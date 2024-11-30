@@ -6,9 +6,11 @@ import Cookies from 'js-cookie';
 import { validateTelegramSession } from '@zizibot/rest-client/internal/user-rest';
 import { useAppDispatch } from '@zizibot/store/user/hook';
 import { setId, setName } from '@zizibot/store/user/state';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@zizibot/shadcn/components/ui/dialog';
+import { MaterialProgressBar } from '@zizibot/shadcn/components/material-progress-bar';
 
 const TelegramLogin: React.FC = () => {
-  const [loading, setLoading] = useState(true);
+  const [openDialog, setOpenDialog] = useState(false);
   const [progressMessage, setProgressMessage] = useState('');
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -17,9 +19,10 @@ const TelegramLogin: React.FC = () => {
   console.debug('query params', queryParams);
 
   const fetchData = async () => {
+    setOpenDialog(true);
     setProgressMessage('Validating session...');
 
-    const { result } = await validateTelegramSession({
+    const { message, result } = await validateTelegramSession({
       session_id: queryParams.session_id,
       id: queryParams.id,
       first_name: queryParams.first_name,
@@ -39,9 +42,10 @@ const TelegramLogin: React.FC = () => {
       // @ts-ignore
       dispatch(setId(queryParams.id));
       router.replace('/');
-
-      setLoading(false);
     }
+
+    setProgressMessage(message);
+    setTimeout(() => setOpenDialog(false), 3000);
   };
 
   useEffect(() => {
@@ -49,9 +53,18 @@ const TelegramLogin: React.FC = () => {
       fetchData();
   }, []);
 
-
-  if (loading) return (
-    <h1>{progressMessage}</h1>
+  return (
+    <Dialog open={openDialog} onOpenChange={setOpenDialog}>
+      <DialogContent hideClose={true} onPointerDownOutside={event => event.preventDefault()}>
+        <DialogHeader>
+          <DialogTitle>Logging to Console</DialogTitle>
+          <MaterialProgressBar mode={'indeterminate'} color={'accent'} />
+          <DialogDescription>
+            {progressMessage}
+          </DialogDescription>
+        </DialogHeader>
+      </DialogContent>
+    </Dialog>
   );
 };
 
