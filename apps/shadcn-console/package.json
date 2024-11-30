@@ -11,6 +11,7 @@
   "dependencies": {
     "@zizibot/shadcn": "workspace:*",
     "@zizibot/rest-client": "workspace:*",
+    "@zizibot/ui": "workspace:*",
     "next": "catalog:",
     "react": "catalog:react18",
     "react-dom": "catalog:react18"

@@ -1,8 +1,8 @@
 ﻿'use client';
 
-import {Provider} from 'react-redux';
-import React, {useRef} from 'react';
-import {AppStore, makeStore} from '@zizibot/store/src/state/store';
+import { Provider } from 'react-redux';
+import React, { useRef } from 'react';
+import { AppStore, makeStore } from '@zizibot/store/user/store';
 
 export default function ReduxProvider({ children }: {
   children: React.ReactNode;

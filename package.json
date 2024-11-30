@@ -9,7 +9,7 @@
     "shadcn-console": "turbo run dev --filter=@apps/shadcn-console --filter=\"./packages/*\"",
     "shadcn-console-build": "turbo run build --filter=@apps/shadcn-console --filter=\"./packages/*\"",
     "build": "turbo run build",
-    "clean": "turbo run clean",
+    "clean": "turbo clean",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky"

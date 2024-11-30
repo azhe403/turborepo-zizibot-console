@@ -9,6 +9,7 @@
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
+    "@zizibot/ui": "workspace:*",
     "@zizibot/shadcn": "workspace:*",
     "next": "catalog:",
     "react": "catalog:react18",

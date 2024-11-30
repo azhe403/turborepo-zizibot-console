@@ -6,7 +6,8 @@
     "./button": "./src/button.tsx",
     "./card": "./src/card.tsx",
     "./code": "./src/code.tsx",
-    "./redux-provider": "./src/provider/ReduxProvider.tsx",
+    "./layouts/*": "./src/layouts/*.tsx",
+    "./providers/redux-provider": "./src/provider/ReduxProvider.tsx",
     "./telegram-login": "./src/telegram/TelegramLogin.tsx",
     "./session-listener": "./src/telegram/SessionListener.tsx",
     "./features/pendekin/list-pendekin": "./src/features/pendekin/ListPendekin.tsx"
@@ -16,9 +17,12 @@
     "generate:component": "turbo gen react-component"
   },
   "dependencies": {
+    "@zizibot/shadcn": "workspace:*",
     "@zizibot/store": "workspace:*",
     "js-cookie": "^3.0.5",
+    "lucide-react": "^0.462.0",
     "next": "catalog:",
+    "next-themes": "^0.4.3",
     "react": "catalog:react18",
     "react-redux": "^9.1.2"
   },

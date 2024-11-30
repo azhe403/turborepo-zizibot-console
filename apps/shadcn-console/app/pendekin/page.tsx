@@ -1,4 +1,4 @@
-import MainLayout from "@zizibot/shadcn/components/main-layout";
+import MainLayout from '@zizibot/ui/layouts/main-layout';
 
 const ListPendekin = () => (
   <MainLayout>
@@ -6,4 +6,4 @@ const ListPendekin = () => (
   </MainLayout>
 );
 
-export default ListPendekin
+export default ListPendekin;

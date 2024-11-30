@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Cookies from 'js-cookie';
 import { validateTelegramSession } from '@zizibot/rest-client/internal/user-rest';
-import { useAppDispatch } from '@zizibot/store/src/state/hook';
-import {setId, setName} from '@zizibot/store/src/state/slicers/user';
+import { useAppDispatch } from '@zizibot/store/user/hook';
+import { setId, setName } from '@zizibot/store/user/state';
 
 const TelegramLogin: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -34,7 +34,9 @@ const TelegramLogin: React.FC = () => {
       const bearerToken = result.bearerToken;
 
       Cookies.set('bearerToken', bearerToken);
+      // @ts-ignore
       dispatch(setName(queryParams.first_name));
+      // @ts-ignore
       dispatch(setId(queryParams.id));
       router.replace('/');
 
