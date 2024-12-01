@@ -2,9 +2,10 @@
   "name": "@zizibot/utils",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "exports": {
-    ".": "./src/*.ts"
+    "./cookie": "./src/cookie.ts",
+    "./logger": "./src/logger.ts",
+    "./local-storage": "./src/localstorage.ts"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,5 +17,8 @@
     "@types/jest": "catalog:",
     "@types/node": "catalog:",
     "jest": "catalog:"
+  },
+  "dependencies": {
+    "universal-cookie": "^7.2.2"
   }
 }

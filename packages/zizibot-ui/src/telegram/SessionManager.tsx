@@ -1,24 +1,26 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import Cookies from 'js-cookie';
-import { validateTelegramSession } from '@zizibot/rest-client/internal/user-rest';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { getUserInfo, validateTelegramSession } from '@zizibot/rest-client/internal/user-rest';
 import { useAppDispatch } from '@zizibot/store/user/hook';
 import { setId, setName } from '@zizibot/store/user/state';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@zizibot/shadcn/components/ui/dialog';
 import { MaterialProgressBar } from '@zizibot/shadcn/components/material-progress-bar';
+import { setCookie } from '@zizibot/utils/cookie';
+import logDebug from '@zizibot/utils/logger';
 
 const TelegramLogin: React.FC = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [progressMessage, setProgressMessage] = useState('');
   const router = useRouter();
+  const pathname = usePathname();
   const dispatch = useAppDispatch();
   const searchParams = useSearchParams();
   const queryParams = Object.fromEntries(searchParams);
   console.debug('query params', queryParams);
 
-  const fetchData = async () => {
+  const useValidateSession = async () => {
     setOpenDialog(true);
     setProgressMessage('Validating session...');
 
@@ -35,8 +37,8 @@ const TelegramLogin: React.FC = () => {
 
     if (result.isSessionValid) {
       const bearerToken = result.bearerToken;
+      setCookie('bearerToken', bearerToken);
 
-      Cookies.set('bearerToken', bearerToken);
       // @ts-ignore
       dispatch(setName(queryParams.first_name));
       // @ts-ignore
@@ -48,10 +50,23 @@ const TelegramLogin: React.FC = () => {
     setTimeout(() => setOpenDialog(false), 3000);
   };
 
+  const useGetUserInfo = async () => {
+    getUserInfo().then(({ result }) => {
+      logDebug('user info', result);
+
+      // @ts-ignore
+      dispatch(setName(result.name));
+      // @ts-ignore
+      dispatch(setId(result.userId));
+    });
+  };
+
   useEffect(() => {
     if (queryParams.session_id)
-      fetchData();
-  }, []);
+      useValidateSession();
+    else
+      useGetUserInfo();
+  }, [pathname]);
 
   return (
     <Dialog open={openDialog} onOpenChange={setOpenDialog}>

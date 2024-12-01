@@ -1,10 +1,9 @@
-import { NextRequest } from "next/server";
-import { getUserInfo } from "@zizibot/rest-client/internal/user-rest";
+import { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-  console.log("middleware", request.url);
+  console.log('middleware', request.url);
 
-  getUserInfo().then(r => console.debug('user-info', r));
+  // getUserInfo().then(r => console.debug('user-info', r));
 }
 
 // export const config = {
@@ -16,7 +15,7 @@ export function middleware(request: NextRequest) {
 //      * - _next/image (image optimization files)
 //      * - favicon.ico, sitemap.xml, robots.txt (metadata files)
 //      */
-//     '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)',
-//     '/:path*',
-//   ],
-// }
+//     '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|avatars).*)',
+//     '/:path*'
+//   ]
+// };

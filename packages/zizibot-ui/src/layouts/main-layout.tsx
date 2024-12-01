@@ -10,8 +10,8 @@ import { Button } from '@zizibot/shadcn/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@zizibot/shadcn/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@zizibot/shadcn/components/ui/avatar';
 import { useTheme } from 'next-themes';
-import TelegramLogin from '@zizibot/ui/telegram-login';
 import ReduxProvider from '@zizibot/ui/providers/redux-provider';
+import SessionManager from '@zizibot/ui/telegram/session-manager';
 
 export default function MainLayout(
   {
@@ -25,7 +25,7 @@ export default function MainLayout(
     <ReduxProvider>
       <Suspense>
         <SidebarProvider>
-          <TelegramLogin />
+          <SessionManager />
           <AppSidebar />
           <SidebarInset>
             <header className="flex h-16 shrink-0 items-center gap-2 border-b">
