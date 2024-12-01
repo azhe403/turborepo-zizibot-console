@@ -1,6 +1,6 @@
-﻿import apiClient from '../utils/http-client';
-import { ApiResponse } from '@zizibot/contracts/src/restapi/api-response';
-import { TelegramUserLogin, TelegramUserLoginResponse, UserSessionInfo } from '@zizibot/contracts/src/restapi/user-login';
+﻿import apiClient from '@zizibot/rest-client/utils/http-client';
+import { TelegramUserLogin, TelegramUserLoginResponse, UserSessionInfo } from '@zizibot/contracts/rest-api/user-login';
+import { ApiResponse } from '@zizibot/contracts/rest-api/api-response';
 
 export async function validateTelegramSession(data: TelegramUserLogin) {
   const response = await apiClient.post<ApiResponse<TelegramUserLoginResponse>>('/api/user/session/telegram', data);

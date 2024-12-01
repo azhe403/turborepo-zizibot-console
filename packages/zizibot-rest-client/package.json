@@ -5,11 +5,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "files": [
-    "dist/**"
-  ],
   "exports": {
-    "./internal/user-rest": "./src/internal/user-rest.ts"
+    "./utils/http-client": "./src/utils/http-client.ts",
+    "./internal/user-rest": "./src/internal/user-rest.ts",
+    "./internal/pendekin-rest": "./src/internal/pendekin-rest.ts"
   },
   "jest": {
     "preset": "@repo/jest-presets/node"

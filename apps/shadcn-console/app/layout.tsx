@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@zizibot/shadcn/components/theme-provider';
 import React, { ReactNode } from 'react';
+import { Toaster } from '@zizibot/shadcn/components/ui/sonner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -28,6 +29,7 @@ export default function RootLayout(
     >
       {children}
     </ThemeProvider>
+    <Toaster />
     </body>
     </html>
   );
