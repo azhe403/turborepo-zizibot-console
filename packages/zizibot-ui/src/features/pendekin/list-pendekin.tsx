@@ -1,12 +1,12 @@
 ﻿'use client';
 
-import { useEffect, useState } from 'react';
+import { ColumnDef } from '@tanstack/react-table';
+import { PendekinItem } from '@zizibot/contracts/rest-api/pendekin';
+import { useGetPendekin } from '@zizibot/rest-client/internal/pendekin-rest';
+import { DataTable } from '@zizibot/shadcn/components/data-table';
 import PageContainer from '@zizibot/ui/components/PageContainer';
 import FormCreatePendekin from '@zizibot/ui/features/pendekin/form-create-pendekin';
-import { useGetPendekin } from '@zizibot/rest-client/internal/pendekin-rest';
-import { PendekinItem } from '@zizibot/contracts/rest-api/pendekin';
-import { DataTable } from '@zizibot/shadcn/components/data-table';
-import { ColumnDef } from '@tanstack/react-table';
+import { useEffect, useState } from 'react';
 
 export const columns: ColumnDef<PendekinItem>[] = [
   {
@@ -45,7 +45,7 @@ export default function ListPendekin() {
           <div className="aspect-video w-full rounded-lg bg-muted/50 p-2">
             <FormCreatePendekin afterCreatePendekin={loadPendekin} />
           </div>
-          <div className="aspect-video w-full rounded-lg bg-muted/50 p-2">
+          <div className="max-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
             <DataTable columns={columns} data={listPendekin} />
           </div>
         </div>

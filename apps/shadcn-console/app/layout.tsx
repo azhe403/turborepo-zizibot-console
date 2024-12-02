@@ -1,9 +1,9 @@
 import '@zizibot/shadcn/globals.css';
+import { ThemeProvider } from '@zizibot/shadcn/components/theme-provider';
+import { Toaster } from '@zizibot/shadcn/components/ui/sonner';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@zizibot/shadcn/components/theme-provider';
 import React, { ReactNode } from 'react';
-import { Toaster } from '@zizibot/shadcn/components/ui/sonner';
 
 const inter = Inter({ subsets: ['latin'] });
 

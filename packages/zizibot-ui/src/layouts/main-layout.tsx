@@ -1,17 +1,17 @@
 'use client';
 
 import { AppSidebar } from '@zizibot/shadcn/components/app-sidebar';
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@zizibot/shadcn/components/ui/breadcrumb';
-import { Separator } from '@zizibot/shadcn/components/ui/separator';
-import { SidebarInset, SidebarProvider, SidebarTrigger } from '@zizibot/shadcn/components/ui/sidebar';
-import React, { Suspense } from 'react';
-import { Moon, Sun, User } from 'lucide-react';
+import DynamicBreadcrumbs from '@zizibot/shadcn/components/dynamic-breadcrumbs';
+import { Avatar, AvatarFallback, AvatarImage } from '@zizibot/shadcn/components/ui/avatar';
 import { Button } from '@zizibot/shadcn/components/ui/button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@zizibot/shadcn/components/ui/dropdown-menu';
-import { Avatar, AvatarFallback, AvatarImage } from '@zizibot/shadcn/components/ui/avatar';
-import { useTheme } from 'next-themes';
+import { Separator } from '@zizibot/shadcn/components/ui/separator';
+import { SidebarInset, SidebarProvider, SidebarTrigger } from '@zizibot/shadcn/components/ui/sidebar';
 import ReduxProvider from '@zizibot/ui/providers/redux-provider';
 import SessionManager from '@zizibot/ui/telegram/session-manager';
+import { Moon, Sun, User } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import React, { Suspense } from 'react';
 
 export default function MainLayout(
   {
@@ -32,19 +32,7 @@ export default function MainLayout(
               <div className="flex items-center gap-2 px-3">
                 <SidebarTrigger />
                 <Separator orientation="vertical" className="mr-2 h-4" />
-                <Breadcrumb>
-                  <BreadcrumbList>
-                    <BreadcrumbItem className="hidden md:block">
-                      <BreadcrumbLink href="#">
-                        Building Your Application
-                      </BreadcrumbLink>
-                    </BreadcrumbItem>
-                    <BreadcrumbSeparator className="hidden md:block" />
-                    <BreadcrumbItem>
-                      <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-                    </BreadcrumbItem>
-                  </BreadcrumbList>
-                </Breadcrumb>
+                <DynamicBreadcrumbs />
               </div>
               <div className="ml-auto mr-3 flex items-center">
                 <div className={'m-2'}>
