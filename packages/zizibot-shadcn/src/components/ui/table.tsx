@@ -13,7 +13,7 @@ const Table = React.forwardRef<
       {...props}
     />
   </div>
-));
+))
 Table.displayName = 'Table';
 
 const TableHeader = React.forwardRef<
@@ -21,7 +21,7 @@ const TableHeader = React.forwardRef<
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
   <thead ref={ref} className={cn('[&_tr]:border-b', className)} {...props} />
-));
+))
 TableHeader.displayName = 'TableHeader';
 
 const TableBody = React.forwardRef<
@@ -33,7 +33,7 @@ const TableBody = React.forwardRef<
     className={cn('[&_tr:last-child]:border-0', className)}
     {...props}
   />
-));
+))
 TableBody.displayName = 'TableBody';
 
 const TableFooter = React.forwardRef<
@@ -48,7 +48,7 @@ const TableFooter = React.forwardRef<
     )}
     {...props}
   />
-));
+))
 TableFooter.displayName = 'TableFooter';
 
 const TableRow = React.forwardRef<
@@ -63,7 +63,7 @@ const TableRow = React.forwardRef<
     )}
     {...props}
   />
-));
+))
 TableRow.displayName = 'TableRow';
 
 const TableHead = React.forwardRef<
@@ -78,7 +78,7 @@ const TableHead = React.forwardRef<
     )}
     {...props}
   />
-));
+))
 TableHead.displayName = 'TableHead';
 
 const TableCell = React.forwardRef<
@@ -90,7 +90,7 @@ const TableCell = React.forwardRef<
     className={cn('p-4 align-middle [&:has([role=checkbox])]:pr-0', className)}
     {...props}
   />
-));
+))
 TableCell.displayName = 'TableCell';
 
 const TableCaption = React.forwardRef<
@@ -102,7 +102,7 @@ const TableCaption = React.forwardRef<
     className={cn('mt-4 text-sm text-muted-foreground', className)}
     {...props}
   />
-));
+))
 TableCaption.displayName = 'TableCaption';
 
 export {
@@ -114,4 +114,4 @@ export {
   TableRow,
   TableCell,
   TableCaption
-};
+}

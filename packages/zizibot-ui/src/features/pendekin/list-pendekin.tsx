@@ -1,41 +1,54 @@
 ﻿'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageContainer from '@zizibot/ui/components/PageContainer';
-import CreatePendekin from '@zizibot/ui/features/pendekin/create-pendekin';
+import FormCreatePendekin from '@zizibot/ui/features/pendekin/form-create-pendekin';
 import { useGetPendekin } from '@zizibot/rest-client/internal/pendekin-rest';
 import { PendekinItem } from '@zizibot/contracts/rest-api/pendekin';
-import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@zizibot/shadcn/components/ui/table';
+import { DataTable } from '@zizibot/shadcn/components/data-table';
+import { ColumnDef } from '@tanstack/react-table';
+
+export const columns: ColumnDef<PendekinItem>[] = [
+  {
+    accessorKey: 'shortPath',
+    header: 'Short Path'
+  },
+  {
+    accessorKey: 'originalUrl',
+    header: 'Original Url'
+  },
+  {
+    accessorKey: 'createdDate',
+    header: 'Created date'
+  },
+  {
+    accessorKey: 'updatedDate',
+    header: 'Updated Date'
+  }
+];
 
 export default function ListPendekin() {
-  const [listPendekin, setListPendekin] = useState<PendekinItem[]>();
+  const [listPendekin, setListPendekin] = useState<PendekinItem[]>([]);
+
   const loadPendekin = () => {
-    useGetPendekin();
+    useGetPendekin().then(response => setListPendekin(response.result));
   };
+
+  useEffect(() => {
+    loadPendekin();
+  }, []);
+
   return (
     <>
       <PageContainer PageTitle={'Daftar Pendekin'}>
-        <CreatePendekin afterCreatePendekin={loadPendekin} />
-        <Table>
-          <TableCaption>A list of your recent invoices.</TableCaption>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">Invoice</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Method</TableHead>
-              <TableHead className="text-right">Amount</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-              <TableCell className="font-medium">INV001</TableCell>
-              <TableCell>Paid</TableCell>
-              <TableCell>Credit Card</TableCell>
-              <TableCell className="text-right">$250.00</TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-
+        <div className="flex flex-1 flex-col gap-4 p-4">
+          <div className="aspect-video w-full rounded-lg bg-muted/50 p-2">
+            <FormCreatePendekin afterCreatePendekin={loadPendekin} />
+          </div>
+          <div className="aspect-video w-full rounded-lg bg-muted/50 p-2">
+            <DataTable columns={columns} data={listPendekin} />
+          </div>
+        </div>
       </PageContainer>
     </>
   );

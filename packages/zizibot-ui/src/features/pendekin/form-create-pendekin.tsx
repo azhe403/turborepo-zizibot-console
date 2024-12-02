@@ -11,11 +11,11 @@ import { useCreatePendekin } from '@zizibot/rest-client/internal/pendekin-rest';
 import { toast } from 'sonner';
 
 const formSchema = z.object({
-  originalUrl: z.string().url(),
-  shortPath: z.string()
+  originalUrl: z.string().url('Please input valid URL'),
+  shortPath: z.string().optional()
 });
 
-export default function CreatePendekin(props: any) {
+export default function FormCreatePendekin(props: any) {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {}
@@ -36,38 +36,38 @@ export default function CreatePendekin(props: any) {
   }
 
   return (
-    <div className="mx-auto h-24 w-full max-w-3xl rounded-xl bg-muted/50">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
-            control={form.control}
-            name="originalUrl"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Original Url</FormLabel>
-                <FormControl>
-                  <Input placeholder="Original URL" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="shortPath"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Short Path</FormLabel>
-                <FormControl>
-                  <Input placeholder="Short Path" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="originalUrl"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Original Url</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter Original Url want to get Pendekin" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="shortPath"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Short Path</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter Short Path for Original URL routing" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <div className={'py-2'}>
           <Button type="submit">Submit</Button>
-        </form>
-      </Form>
-    </div>
+        </div>
+      </form>
+    </Form>
   );
 }

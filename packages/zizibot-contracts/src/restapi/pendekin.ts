@@ -1,6 +1,6 @@
 ﻿export interface CreatePendekinRequest {
   originalUrl: string;
-  shortPath: string;
+  shortPath?: string;
 }
 
 export interface PendekinItem {
