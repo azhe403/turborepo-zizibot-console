@@ -1,0 +1,16 @@
+{
+  "name": "@apps/pendekin-router",
+  "scripts": {
+    "dev": "tsx watch src/index.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@zizibot/utils": "workspace:*",
+    "@zizibot/rest-client": "workspace:*",
+    "hono": "^4.6.13"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.25",
+    "tsx": "^4.19.2"
+  }
+}

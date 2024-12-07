@@ -5,6 +5,7 @@ import { MaterialProgressBar } from '@zizibot/shadcn/components/material-progres
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@zizibot/shadcn/components/ui/dialog';
 import { useAppDispatch } from '@zizibot/store/user/hook';
 import { setId, setName } from '@zizibot/store/user/state';
+import { IF } from '@zizibot/ui/components/IF';
 import { setCookie } from '@zizibot/utils/cookie';
 import { logDebug } from '@zizibot/utils/logger';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -77,11 +78,15 @@ const TelegramLogin: React.FC = () => {
       <DialogContent hideClose={true} onPointerDownOutside={event => event.preventDefault()}>
         <DialogHeader>
           <DialogTitle>Logging to Console</DialogTitle>
-          {(() => {
-            if (showProgressBar) {
-              return <MaterialProgressBar mode={'indeterminate'} color={'accent'} />;
-            }
-          })()}
+          {/*{(() => {*/}
+          {/*  if (showProgressBar) {*/}
+          {/*    return <MaterialProgressBar mode={'indeterminate'} color={'accent'} />;*/}
+          {/*  }*/}
+          {/*})()}*/}
+
+          <IF condition={showProgressBar}>
+            <MaterialProgressBar mode={'indeterminate'} color={'accent'} />
+          </IF>
           <DialogDescription>
             {progressMessage}
           </DialogDescription>

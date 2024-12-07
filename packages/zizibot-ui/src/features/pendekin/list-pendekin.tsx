@@ -2,7 +2,7 @@
 
 import { ColumnDef } from '@tanstack/react-table';
 import { PendekinItem } from '@zizibot/contracts/rest-api/pendekin';
-import { useGetPendekin } from '@zizibot/rest-client/internal/pendekin-rest';
+import { useGetListPendekin } from '@zizibot/rest-client/internal/pendekin-rest';
 import { DataTable } from '@zizibot/shadcn/components/data-table';
 import PageContainer from '@zizibot/ui/components/PageContainer';
 import FormCreatePendekin from '@zizibot/ui/features/pendekin/form-create-pendekin';
@@ -31,7 +31,7 @@ export default function ListPendekin() {
   const [listPendekin, setListPendekin] = useState<PendekinItem[]>([]);
 
   const loadPendekin = () => {
-    useGetPendekin().then(response => setListPendekin(response.result));
+    useGetListPendekin().then(response => setListPendekin(response.result));
   };
 
   useEffect(() => {
