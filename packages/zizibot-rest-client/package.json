@@ -8,7 +8,8 @@
   "exports": {
     "./utils/http-client": "./src/utils/http-client.ts",
     "./internal/user-rest": "./src/internal/user-rest.ts",
-    "./internal/pendekin-rest": "./src/internal/pendekin-rest.ts"
+    "./internal/pendekin-rest": "./src/internal/pendekin-rest.ts",
+    "./models/http": "./src/models/http.ts"
   },
   "jest": {
     "preset": "@repo/jest-presets/node"

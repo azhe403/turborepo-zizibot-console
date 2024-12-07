@@ -20,6 +20,7 @@
   "dependencies": {
     "@tanstack/react-table": "^8.20.5",
     "@zizibot/contracts": "workspace:*",
+    "@zizibot/rest-client": "workspace:*",
     "@zizibot/shadcn": "workspace:*",
     "@zizibot/store": "workspace:*",
     "@zizibot/utils": "workspace:*",
@@ -27,7 +28,7 @@
     "next": "catalog:",
     "next-themes": "^0.4.3",
     "react": "catalog:react18",
-    "react-hook-form": "^7.53.2",
+    "react-hook-form": "^7.54.0",
     "react-redux": "^9.1.2",
     "sonner": "^1.7.0",
     "zod": "^3.23.8"

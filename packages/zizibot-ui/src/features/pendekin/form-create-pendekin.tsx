@@ -1,14 +1,14 @@
 ﻿'use client';
 
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Input } from '@zizibot/shadcn/components/ui/input';
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@zizibot/shadcn/components/ui/form';
-import { Button } from '@zizibot/shadcn/components/ui/button';
-import logDebug from '@zizibot/utils/logger';
 import { useCreatePendekin } from '@zizibot/rest-client/internal/pendekin-rest';
+import { Button } from '@zizibot/shadcn/components/ui/button';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@zizibot/shadcn/components/ui/form';
+import { Input } from '@zizibot/shadcn/components/ui/input';
+import { logDebug } from '@zizibot/utils/logger';
+import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
+import { z } from 'zod';
 
 const formSchema = z.object({
   originalUrl: z.string().url('Please input valid URL'),
@@ -26,8 +26,8 @@ export default function FormCreatePendekin(props: any) {
     useCreatePendekin({
       originalUrl: values.originalUrl,
       shortPath: values.shortPath
-    }).then(create => {
-      toast(create.message);
+    }).then(({ message }) => {
+      toast(message);
       props.afterCreatePendekin();
     }).catch(reason => {
       logDebug('error create pendekin', reason);
