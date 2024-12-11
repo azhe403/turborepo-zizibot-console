@@ -10,3 +10,10 @@ export interface PendekinItem {
   createdDate: Date;
   updatedDate: Date;
 }
+
+export interface PendekinItemDetail {
+  pendekinId: string;
+  originalUrl: string;
+  createdDate: Date;
+  updatedDate: Date;
+}

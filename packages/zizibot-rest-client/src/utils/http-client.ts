@@ -3,7 +3,7 @@ import { getCookie } from '@zizibot/utils/cookie';
 import axios, { AxiosResponse } from 'axios';
 
 const apiClient = axios.create({
-  baseURL: process.env.API_BASE_URL,
+  baseURL: process.env.API_BASE_URL || 'https://console-zizibot-dev.azhe.my.id',
   headers: {
     'Content-Type': 'application/json'
   }
