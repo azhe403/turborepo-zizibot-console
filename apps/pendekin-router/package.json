@@ -2,7 +2,9 @@
   "name": "@apps/pendekin-router",
   "scripts": {
     "dev": "wrangler dev --port 7140",
-    "deploy": "wrangler deploy --minify"
+    "deploy": "wrangler deploy --minify",
+    "deploy-stg": "wrangler deploy --minify --env staging",
+    "deploy-prod": "wrangler deploy --minify --env production"
   },
   "dependencies": {
     "@zizibot/contracts": "workspace:*",
@@ -12,6 +14,6 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241205.0",
-    "wrangler": "^3.94.0"
+    "wrangler": "^3.95.0"
   }
 }

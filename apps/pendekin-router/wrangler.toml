@@ -7,6 +7,18 @@ compatibility_flags = ["nodejs_compat_v2"]
 # [vars]
 # MY_VAR = "my-variable"
 
+routes = [
+  { pattern = "azhe.my.id", custom_domain = true }
+]
+
+[env.staging]
+workers_dev = true
+route = "p-cf-stg.azhe.my.id/*"
+
+[env.production]
+workers_dev = true
+route = "p-cf.azhe.my.id/*"
+
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
 # id = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
@@ -23,6 +35,6 @@ compatibility_flags = ["nodejs_compat_v2"]
 # [ai]
 # binding = "AI"
 
-# [observability]
-# enabled = true
-# head_sampling_rate = 1
+[observability]
+enabled = true
+head_sampling_rate = 1
