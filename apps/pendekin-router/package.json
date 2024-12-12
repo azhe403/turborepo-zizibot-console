@@ -1,7 +1,7 @@
 {
   "name": "@apps/pendekin-router",
   "scripts": {
-    "dev": "wrangler dev --port 7140",
+    "dev": "wrangler dev --port 7140 --env local",
     "deploy": "wrangler deploy --minify",
     "deploy-stg": "wrangler deploy --minify --env staging",
     "deploy-prod": "wrangler deploy --minify --env production"
@@ -10,6 +10,7 @@
     "@zizibot/contracts": "workspace:*",
     "@zizibot/rest-client": "workspace:*",
     "@zizibot/utils": "workspace:*",
+    "axios": "workspace:*",
     "hono": "^4.6.13"
   },
   "devDependencies": {
