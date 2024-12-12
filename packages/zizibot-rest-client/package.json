@@ -17,7 +17,7 @@
   "dependencies": {
     "@zizibot/contracts": "workspace:*",
     "@zizibot/utils": "workspace:*",
-    "axios": "workspace:*"
+    "axios": "catalog:"
   },
   "devDependencies": {
     "@jest/globals": "^29",

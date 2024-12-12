@@ -10,7 +10,7 @@
     "@zizibot/contracts": "workspace:*",
     "@zizibot/rest-client": "workspace:*",
     "@zizibot/utils": "workspace:*",
-    "axios": "workspace:*",
+    "axios": "catalog:",
     "hono": "^4.6.13"
   },
   "devDependencies": {
