@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const axios = require('axios');
+const process = require('process');
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.get('/:pendekinPath', async (req, res) => {
 
   let config = {
     method: 'get',
-    url: 'https://console-stg.zizibot.nf.azhe.my.id/api/pendekin/' + pendekinPath,
+    url: process.env.API_BASE_URL + '/api/pendekin/' + pendekinPath,
     validateStatus: function() {
       return true; // Accept all HTTP status codes
     }
