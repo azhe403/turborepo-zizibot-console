@@ -1,7 +1,9 @@
 {
   "name": "@apps/pendekin-router",
+  "main": "index.ts",
   "scripts": {
-    "dev": "wrangler dev --port 7140 --env local",
+    "dev-wrangler": "wrangler dev --port 7140 --env local",
+    "dev": "node api/index.ts",
     "deploy": "wrangler deploy --minify",
     "deploy-stg": "wrangler deploy --minify --env staging",
     "deploy-prod": "wrangler deploy --minify --env production"
@@ -11,10 +13,14 @@
     "@zizibot/rest-client": "workspace:*",
     "@zizibot/utils": "workspace:*",
     "axios": "catalog:",
-    "hono": "^4.6.13"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "hono": "^4.6.14"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20241205.0",
-    "wrangler": "^3.95.0"
+    "@cloudflare/workers-types": "^4.20241218.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "catalog:",
+    "wrangler": "^3.96.0"
   }
 }
