@@ -28,7 +28,7 @@ app.get('/:pendekinPath', async (req, res) => {
 
   const response = await axios(config);
   console.log('pendekin response', JSON.stringify(response.data));
-  const originalUrl = response.data.result?.originalUrl;
+  const originalUrl = response.data.result?.original_url;
   console.log('originalUrl', originalUrl);
 
   if (originalUrl) {

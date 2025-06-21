@@ -5,7 +5,8 @@
   "exports": {
     "./cookie": "./src/cookie.ts",
     "./logger": "./src/logger.ts",
-    "./local-storage": "./src/localstorage.ts"
+    "./local-storage": "./src/localstorage.ts",
+    "./string": "./src/string.ts"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
