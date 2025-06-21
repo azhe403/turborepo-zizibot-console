@@ -10,8 +10,8 @@ import { useEffect, useState } from 'react';
 
 export const columns: ColumnDef<PendekinItem>[] = [
   {
-    accessorKey: 'shortPath',
-    header: 'Short Path'
+    accessorKey: 'shortUrl',
+    header: 'Short Url'
   },
   {
     accessorKey: 'originalUrl',
