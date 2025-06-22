@@ -72,8 +72,8 @@ const TelegramLogin: React.FC = () => {
   useEffect(() => {
     if (queryParams.session_id)
       useValidateSession();
-    else
-      useGetUserInfo();
+
+    useGetUserInfo();
   }, [pathname]);
 
   return (
