@@ -25,76 +25,66 @@ const data = {
       items: [
         {
           title: 'Pendekin',
-          url: '/pendekin'
+          url: '/util/pendekin'
         }
       ]
     },
     {
-      title: 'Getting Started',
+      title: 'Chat Management',
       url: '#',
       items: [
         {
-          title: 'Installation',
-          url: '#'
+          title: 'RSS',
+          url: '/chat/rss'
         },
         {
-          title: 'Project Structure',
-          url: '#'
+          title: 'Notes',
+          url: '/chat/notes'
+        },
+        {
+          title: 'Welcome Message',
+          url: '/chat/welcome-message'
         }
       ]
     },
     {
-      title: 'Building Your Application',
+      title: 'Mirror',
+      role: 'Sudo',
       url: '#',
       items: [
         {
-          title: 'Routing',
-          url: '#'
+          title: 'Mirror Donation',
+          url: '/mirror/donation'
         },
         {
-          title: 'Data Fetching',
-          url: '#',
-          isActive: true
+          title: 'Mirror User',
+          url: '/mirror/user'
+        }
+      ]
+    },
+    {
+      title: 'Administrator',
+      role: 'Sudo',
+      url: '#',
+      items: [
+        {
+          title: 'App Settings',
+          url: '/admin/app-settings'
         },
         {
-          title: 'Rendering',
-          url: '#'
-        },
+          title: 'Api Keys',
+          url: '/admin/api-keys'
+        }
+      ]
+    },
+    {
+      title: 'Profile',
+      role: 'User',
+      url: '#',
+      items: [
         {
-          title: 'Caching',
-          url: '#'
-        },
-        {
-          title: 'Styling',
-          url: '#'
-        },
-        {
-          title: 'Optimizing',
-          url: '#'
-        },
-        {
-          title: 'Configuring',
-          url: '#'
-        },
-        {
-          title: 'Testing',
-          url: '#'
-        },
-        {
-          title: 'Authentication',
-          url: '#'
-        },
-        {
-          title: 'Deploying',
-          url: '#'
-        },
-        {
-          title: 'Upgrading',
-          url: '#'
-        },
-        {
-          title: 'Examples',
-          url: '#'
+          title: 'About Me',
+          url: '/me/about'
         }
       ]
     }

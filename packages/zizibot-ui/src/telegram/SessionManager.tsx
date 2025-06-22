@@ -58,11 +58,12 @@ const TelegramLogin: React.FC = () => {
   const useGetUserInfo = () => {
     getUserInfo().then(({ result }) => {
       logDebug('user info', result);
-
-      // @ts-ignore
-      dispatch(setName(result.name));
-      // @ts-ignore
-      dispatch(setId(result.userId));
+      if (result) {
+        // @ts-ignore
+        dispatch(setName(result.name));
+        // @ts-ignore
+        dispatch(setId(result.userId));
+      }
     });
   };
 
