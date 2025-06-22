@@ -19,4 +19,5 @@ export interface UserSessionInfo {
   userName: string;
   userId: number;
   name: string;
+  roles: string[];
 }

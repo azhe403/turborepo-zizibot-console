@@ -3,8 +3,8 @@
 import { getUserInfo, validateTelegramSession } from '@zizibot/rest-client/internal/user-rest';
 import { MaterialProgressBar } from '@zizibot/shadcn/components/material-progress-bar';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@zizibot/shadcn/components/ui/dialog';
-import { useAppDispatch } from '@zizibot/store/user/hook';
-import { setId, setName } from '@zizibot/store/user/state';
+import { useAppDispatch, useAppSelector } from '@zizibot/store/user/hook';
+import { setId, setName, setRole } from '@zizibot/store/user/state';
 import { IF } from '@zizibot/ui/components/IF';
 import { setCookie } from '@zizibot/utils/cookie';
 import { logDebug } from '@zizibot/utils/logger';
@@ -20,6 +20,7 @@ const TelegramLogin: React.FC = () => {
   const dispatch = useAppDispatch();
   const searchParams = useSearchParams();
   const queryParams = Object.fromEntries(searchParams);
+
   console.debug('query params', queryParams);
 
   const useValidateSession = () => {
@@ -43,10 +44,12 @@ const TelegramLogin: React.FC = () => {
         const bearerToken = result.bearerToken;
         setCookie('bearerToken', bearerToken);
 
-        // @ts-ignore
-        dispatch(setName(queryParams.first_name));
-        // @ts-ignore
-        dispatch(setId(queryParams.id));
+        if (queryParams.first_name)
+          dispatch(setName(queryParams.first_name));
+
+        if (queryParams.id)
+          dispatch(setId(Number(queryParams.id)));
+
         router.replace('/');
 
         setProgressMessage(message);
@@ -59,10 +62,9 @@ const TelegramLogin: React.FC = () => {
     getUserInfo().then(({ result }) => {
       logDebug('user info', result);
       if (result) {
-        // @ts-ignore
         dispatch(setName(result.name));
-        // @ts-ignore
         dispatch(setId(result.userId));
+        dispatch(setRole(result.roles));
       }
     });
   };
@@ -79,12 +81,6 @@ const TelegramLogin: React.FC = () => {
       <DialogContent hideClose={true} onPointerDownOutside={event => event.preventDefault()}>
         <DialogHeader>
           <DialogTitle>Logging to Console</DialogTitle>
-          {/*{(() => {*/}
-          {/*  if (showProgressBar) {*/}
-          {/*    return <MaterialProgressBar mode={'indeterminate'} color={'accent'} />;*/}
-          {/*  }*/}
-          {/*})()}*/}
-
           <IF condition={showProgressBar}>
             <MaterialProgressBar mode={'indeterminate'} color={'accent'} />
           </IF>

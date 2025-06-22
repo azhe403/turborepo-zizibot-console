@@ -11,6 +11,7 @@ import {
   SidebarMenuSubItem,
   SidebarRail
 } from '@zizibot/shadcn/components/ui/sidebar';
+import { useAppSelector } from '@zizibot/store/user/hook';
 import { GalleryVerticalEnd } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -22,6 +23,7 @@ const data = {
     {
       title: 'Productivity',
       url: '#',
+      role: 'User',
       items: [
         {
           title: 'Pendekin',
@@ -32,6 +34,7 @@ const data = {
     {
       title: 'Chat Management',
       url: '#',
+      role: 'User',
       items: [
         {
           title: 'RSS',
@@ -49,8 +52,8 @@ const data = {
     },
     {
       title: 'Mirror',
-      role: 'Sudo',
       url: '#',
+      role: 'Sudo',
       items: [
         {
           title: 'Mirror Donation',
@@ -64,8 +67,8 @@ const data = {
     },
     {
       title: 'Administrator',
-      role: 'Sudo',
       url: '#',
+      role: 'Sudo',
       items: [
         {
           title: 'App Settings',
@@ -74,13 +77,17 @@ const data = {
         {
           title: 'Api Keys',
           url: '/admin/api-keys'
+        },
+        {
+          title: 'Sudo',
+          url: '/admin/sudo'
         }
       ]
     },
     {
       title: 'Profile',
-      role: 'User',
       url: '#',
+      role: 'User',
       items: [
         {
           title: 'About Me',
@@ -93,6 +100,8 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathName = usePathname();
+  const userRoles = useAppSelector(state => state.user.roles);
+
   return (
     <Sidebar {...props}>
       <SidebarHeader>
@@ -115,7 +124,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <SidebarGroup>
           <SidebarMenu>
-            {data.navMain.map((item) => (
+            {data.navMain
+              .filter(x => userRoles.includes(x.role))
+              .map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
                   <Link href={item.url} className="font-medium">
