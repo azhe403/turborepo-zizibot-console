@@ -125,7 +125,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarGroup>
           <SidebarMenu>
             {data.navMain
-              .filter(x => userRoles.includes(x.role))
+              .filter(x => userRoles?.includes(x.role))
               .map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
