@@ -10,7 +10,8 @@
     "clean": "turbo clean",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prebuils": "npx update-browserslist-db@latest"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
