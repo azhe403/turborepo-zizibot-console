@@ -2,7 +2,6 @@
   originalUrl: string;
   shortPath?: string;
 }
-
 export interface PendekinItem {
   pendekinId: string;
   shortPath: string;
