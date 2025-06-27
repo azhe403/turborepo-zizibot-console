@@ -42,7 +42,7 @@ const TelegramLogin: React.FC = () => {
         setShowProgressBar(false);
       } else if (result.isSessionValid) {
         const bearerToken = result.bearerToken;
-        setCookie('bearerToken', bearerToken);
+        setCookie('bearer_token', bearerToken);
 
         if (queryParams.first_name)
           dispatch(setName(queryParams.first_name));

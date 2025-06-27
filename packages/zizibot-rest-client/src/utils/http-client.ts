@@ -38,7 +38,7 @@ const apiClient = axios.create({
 apiClient.defaults.validateStatus = status => status >= 200 && status <= 500;
 
 apiClient.interceptors.request.use(config => {
-  const token = getCookie('bearerToken');
+  const token = getCookie('bearer_token');
   if (token) {
     config.headers.Authorization = 'Bearer ' + token;
   }
