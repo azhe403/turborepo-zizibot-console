@@ -10,8 +10,8 @@ import { useEffect, useState } from 'react';
 
 export const columns: ColumnDef<PendekinItem>[] = [
   {
-    accessorKey: 'shortPath',
-    header: 'Short Path'
+    accessorKey: 'shortUrl',
+    header: 'Short Url'
   },
   {
     accessorKey: 'originalUrl',
@@ -40,7 +40,7 @@ export default function ListPendekin() {
 
   return (
     <>
-      <PageContainer PageTitle={'Daftar Pendekin'}>
+      <PageContainer PageTitle={'Pendekin'}>
         <div className="flex flex-1 flex-col gap-4 p-4">
           <div className="aspect-video w-full rounded-lg bg-muted/50 p-2">
             <FormCreatePendekin afterCreatePendekin={loadPendekin} />
