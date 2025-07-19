@@ -81,6 +81,10 @@ const data = {
         {
           title: 'Sudo',
           url: '/admin/sudo'
+        },
+        {
+          title: 'Application',
+          url: '/admin/application'
         }
       ]
     },

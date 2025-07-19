@@ -72,9 +72,9 @@ const TelegramLogin: React.FC = () => {
   useEffect(() => {
     if (queryParams.session_id)
       useValidateSession();
-
-    useGetUserInfo();
-  }, [pathname]);
+    else
+      useGetUserInfo();
+  }, [pathname, searchParams]);
 
   return (
     <Dialog open={openDialog} onOpenChange={setOpenDialog}>
