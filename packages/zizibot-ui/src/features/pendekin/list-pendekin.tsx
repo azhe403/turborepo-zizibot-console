@@ -1,31 +1,15 @@
-﻿'use client';
+'use client';
 
 import { ColumnDef } from '@tanstack/react-table';
 import { PendekinItem } from '@zizibot/contracts/rest-api/pendekin';
-import { useGetListPendekin } from '@zizibot/rest-client/internal/pendekin-rest';
+import { useDeletePendekin, useGetListPendekin } from '@zizibot/rest-client/internal/pendekin-rest';
 import { DataTable } from '@zizibot/shadcn/components/data-table';
+import { Button } from '@zizibot/shadcn/components/ui/button';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@zizibot/shadcn/components/ui/dropdown-menu';
 import PageContainer from '@zizibot/ui/components/PageContainer';
 import FormCreatePendekin from '@zizibot/ui/features/pendekin/form-create-pendekin';
+import { MoreHorizontal } from 'lucide-react';
 import { useEffect, useState } from 'react';
-
-export const columns: ColumnDef<PendekinItem>[] = [
-  {
-    accessorKey: 'shortUrl',
-    header: 'Short Url'
-  },
-  {
-    accessorKey: 'originalUrl',
-    header: 'Original Url'
-  },
-  {
-    accessorKey: 'createdDate',
-    header: 'Created date'
-  },
-  {
-    accessorKey: 'updatedDate',
-    header: 'Updated Date'
-  }
-];
 
 export default function ListPendekin() {
   const [listPendekin, setListPendekin] = useState<PendekinItem[]>([]);
@@ -33,6 +17,58 @@ export default function ListPendekin() {
   const loadPendekin = () => {
     useGetListPendekin().then(response => setListPendekin(response.result));
   };
+
+  const deletePendekin = (pendekinId: string) => {
+    console.log('deletePendekin', pendekinId);
+    useDeletePendekin(pendekinId).then(r => {
+      loadPendekin();
+    });
+  };
+
+  const columns: ColumnDef<PendekinItem>[] = [
+    {
+      accessorKey: 'shortUrl',
+      header: 'Short Url'
+    },
+    {
+      accessorKey: 'originalUrl',
+      header: 'Original Url'
+    },
+    {
+      accessorKey: 'createdDate',
+      header: 'Created date'
+    },
+    {
+      accessorKey: 'updatedDate',
+      header: 'Updated Date'
+    },
+    {
+      id: 'actions',
+      cell: ({ row }) => {
+        const pendekinItem = row.original;
+
+        return (
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="h-8 w-8 p-0">
+                <span className="sr-only">Open menu</span>
+                <MoreHorizontal className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuLabel>Actions</DropdownMenuLabel>
+              <DropdownMenuItem onClick={() => window.open(pendekinItem.shortUrl, '_blank', 'noopener, noreferrer')}>
+                Open in New Tab
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={() => deletePendekin(pendekinItem.pendekinId)}>
+                Delete Route
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        );
+      }
+    }
+  ];
 
   useEffect(() => {
     loadPendekin();
