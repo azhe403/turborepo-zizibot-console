@@ -81,8 +81,18 @@ export default function ListPendekin() {
           <div className="aspect-video w-full rounded-lg bg-muted/50 p-2">
             <FormCreatePendekin afterCreatePendekin={loadPendekin} />
           </div>
-          <div className="max-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
-            <DataTable columns={columns} data={listPendekin} />
+          <div className="flex flex-1 flex-col gap-4">
+            <div className="flex justify-end">
+              <Button 
+                onClick={loadPendekin}
+                variant="outline"
+              >
+                Refresh List
+              </Button>
+            </div>
+            <div className="max-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min">
+              <DataTable columns={columns} data={listPendekin} />
+            </div>
           </div>
         </div>
       </PageContainer>
