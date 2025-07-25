@@ -6,15 +6,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "exports": {
-    "./utils/http-client": "./src/utils/http-client.ts",
-    "./internal/user-rest": "./src/internal/user-rest.ts",
-    "./internal/pendekin-rest": "./src/internal/pendekin-rest.ts",
-    "./models/http": "./src/models/http.ts"
+    "./internal/*": "./src/internal/*.ts",
+    "./models/*": "./src/models/*.ts",
+    "./utils/*": "./src/utils/*.ts"
   },
   "jest": {
     "preset": "@repo/jest-presets/node"
   },
   "dependencies": {
+    "@microsoft/signalr": "^8.0.7",
     "@zizibot/contracts": "workspace:*",
     "@zizibot/utils": "workspace:*",
     "axios": "catalog:",

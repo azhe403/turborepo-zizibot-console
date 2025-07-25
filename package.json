@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "turbo run dev",
     "zizibot-console": "turbo run dev --filter=@apps/shadcn-console --filter=@apps/pendekin-router --filter=\"./packages/*\"",
+    "prebuild": "pnpm run update-browserslist",
     "build": "turbo run build",
     "clean": "turbo clean",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky",
-    "prebuils": "npx update-browserslist-db@latest"
+    "update-browserslist": "npx update-browserslist-db@latest"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
