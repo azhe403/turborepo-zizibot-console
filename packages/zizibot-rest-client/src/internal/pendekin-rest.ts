@@ -16,3 +16,8 @@ export async function useGetPendekin(pendekinPath: string) {
   const response = await apiClient.get<ApiResponse<PendekinItemDetail>>(`/api/pendekin/${pendekinPath}`);
   return deconstructResponse(response);
 }
+
+export async function useDeletePendekin(pendekinPath: string) {
+  const response = await apiClient.delete<ApiResponse<string>>(`/api/pendekin/${pendekinPath}`);
+  return deconstructResponse(response);
+}

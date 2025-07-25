@@ -10,16 +10,17 @@
     "clean": "turbo clean",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "prepare": "husky"
+    "prepare": "husky",
+    "prebuils": "npx update-browserslist-db@latest"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
     "husky": "^9.1.7",
     "prettier": "catalog:",
-    "turbo": "^2.3.3"
+    "turbo": "^2.5.4"
   },
-  "packageManager": "pnpm@9.15.0",
+  "packageManager": "pnpm@10.13.1",
   "engines": {
     "node": ">=20",
     "pnpm": ">=9"

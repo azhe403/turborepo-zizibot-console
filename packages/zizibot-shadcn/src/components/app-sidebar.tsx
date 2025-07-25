@@ -11,6 +11,7 @@ import {
   SidebarMenuSubItem,
   SidebarRail
 } from '@zizibot/shadcn/components/ui/sidebar';
+import { useAppSelector } from '@zizibot/store/user/hook';
 import { GalleryVerticalEnd } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -22,79 +23,79 @@ const data = {
     {
       title: 'Productivity',
       url: '#',
+      role: 'User',
       items: [
         {
           title: 'Pendekin',
-          url: '/pendekin'
+          url: '/util/pendekin'
         }
       ]
     },
     {
-      title: 'Getting Started',
+      title: 'Chat Management',
       url: '#',
+      role: 'User',
       items: [
         {
-          title: 'Installation',
-          url: '#'
+          title: 'RSS',
+          url: '/chat/rss'
         },
         {
-          title: 'Project Structure',
-          url: '#'
+          title: 'Notes',
+          url: '/chat/notes'
+        },
+        {
+          title: 'Welcome Message',
+          url: '/chat/welcome-message'
         }
       ]
     },
     {
-      title: 'Building Your Application',
+      title: 'Mirror',
       url: '#',
+      role: 'Sudo',
       items: [
         {
-          title: 'Routing',
-          url: '#'
+          title: 'Mirror Donation',
+          url: '/mirror/donation'
         },
         {
-          title: 'Data Fetching',
-          url: '#',
-          isActive: true
+          title: 'Mirror User',
+          url: '/mirror/user'
+        }
+      ]
+    },
+    {
+      title: 'Administrator',
+      url: '#',
+      role: 'Sudo',
+      items: [
+        {
+          title: 'App Settings',
+          url: '/admin/app-settings'
         },
         {
-          title: 'Rendering',
-          url: '#'
+          title: 'Api Keys',
+          url: '/admin/api-keys'
         },
         {
-          title: 'Caching',
-          url: '#'
+          title: 'Sudo',
+          url: '/admin/sudo'
         },
         {
-          title: 'Styling',
-          url: '#'
-        },
+          title: 'Application',
+          url: '/admin/application'
+        }
+      ]
+    },
+    {
+      title: 'Profile',
+      url: '#',
+      role: 'User',
+      items: [
         {
-          title: 'Optimizing',
-          url: '#'
-        },
-        {
-          title: 'Configuring',
-          url: '#'
-        },
-        {
-          title: 'Testing',
-          url: '#'
-        },
-        {
-          title: 'Authentication',
-          url: '#'
-        },
-        {
-          title: 'Deploying',
-          url: '#'
-        },
-        {
-          title: 'Upgrading',
-          url: '#'
-        },
-        {
-          title: 'Examples',
-          url: '#'
+          title: 'About Me',
+          url: '/me/about'
         }
       ]
     }
@@ -103,6 +104,8 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const pathName = usePathname();
+  const userRoles = useAppSelector(state => state.user.roles);
+
   return (
     <Sidebar {...props}>
       <SidebarHeader>
@@ -125,7 +128,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <SidebarGroup>
           <SidebarMenu>
-            {data.navMain.map((item) => (
+            {data.navMain
+              .filter(x => userRoles?.includes(x.role))
+              .map((item) => (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild>
                   <Link href={item.url} className="font-medium">

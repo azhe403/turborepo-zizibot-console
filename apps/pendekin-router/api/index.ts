@@ -3,7 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const process = require('process');
-
+const https = require('node:https');
 const app = express();
 
 app.use(express.static('public'));
@@ -18,6 +18,9 @@ app.get('/:pendekinPath', async (req, res) => {
   let config = {
     method: 'get',
     url: process.env.API_BASE_URL + '/api/pendekin/' + pendekinPath,
+    httpsAgent: new https.Agent({
+      rejectUnauthorized: false // Disable SSL verification
+    }),
     validateStatus: function() {
       return true; // Accept all HTTP status codes
     }
@@ -25,7 +28,7 @@ app.get('/:pendekinPath', async (req, res) => {
 
   const response = await axios(config);
   console.log('pendekin response', JSON.stringify(response.data));
-  const originalUrl = response.data.result?.originalUrl;
+  const originalUrl = response.data.result?.original_url;
   console.log('originalUrl', originalUrl);
 
   if (originalUrl) {
