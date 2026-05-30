@@ -1,128 +1,77 @@
-# Turborepo starter with shadcn/ui
+# turborepo-zizibot-console
 
-![Static Badge](https://img.shields.io/badge/shadcn%2Fui-2.1.2-blue?link=https%3A%2F%2Fgithub.com%2Fshadcn%2Fui)
+PNPM + Turborepo monorepo containing Next.js apps and shared ZiziBot packages.
 
-This is Turborepo starter with shadcn/ui pre-configured.
+## Requirements
 
-> [!NOTE]
-> This example uses `pnpm` as package manager.
+- Node.js >= 20
+- pnpm (repo sets `packageManager` in `package.json`)
 
-[npm version](https://github.com/dan5py/turborepo-shadcn-ui/tree/npm)
-[bun version](https://github.com/dan5py/turborepo-shadcn-ui/tree/bun)
-
-## Using this example
-
-Clone the repository:
+## Setup
 
 ```sh
-git clone https://github.com/dan5py/turborepo-shadcn-ui.git
-```
-
-Install dependencies:
-
-```sh
-cd turborepo-shadcn-ui
 pnpm install
 ```
 
-### Add ui components
+## Apps
 
-Use the pre-made script:
+- `apps/shadcn-console` (`@apps/shadcn-console`): Next.js console app (dev port 7130)
+- `apps/web` (`web`): Next.js app (dev port 3001)
+- `apps/docs` (`docs`): Next.js app (default Next port unless overridden)
+- `apps/pendekin-router` (`@apps/pendekin-router`): API/router service (Node dev + Cloudflare Workers via Wrangler)
 
-```sh
-pnpm ui add <component-name>
-```
+## Packages
 
-> This works just like the `shadcn/ui` CLI.
+- `@zizibot/shadcn`: shared shadcn/radix/tailwind component library
+- `@zizibot/ui`: higher-level UI (exports via `package.json#exports`)
+- `@zizibot/rest-client`: REST client + SignalR helpers
+- `@zizibot/contracts`: DTOs/constants
+- `@zizibot/utils`: small utilities
+- `@zizibot/store`: Redux/store-related code
+- `@repo/eslint-config`: shared ESLint configs
+- `@repo/typescript-config`: shared TS configs
+- `@repo/jest-presets`: shared Jest presets
 
-### Add a new app
+## Environment
 
-Turborepo offer a simple command to add a new app:
+- `API_BASE_URL` is used by Turborepo `dev`/`build` tasks.
+- `.env*` files are included as task inputs (see `turbo.json`).
 
-```sh
-pnpm turbo gen workspace --name <app-name>
-```
-
-This will create a new empty app in the `apps` directory.
-
-If you want, you can copy an existing app with:
-
-```sh
-pnpm turbo gen workspace --name <app-name> --copy
-```
-
-> [!NOTE]
-> Remember to run `pnpm install` after copying an app.
-
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library (🚀 powered by **shadcn/ui**)
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
+## Common Commands
 
 ```sh
-cd turborepo-shadcn-ui
-pnpm build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```sh
-cd turborepo-shadcn-ui
 pnpm dev
+pnpm zizibot-console
+pnpm build
+pnpm lint
+pnpm format
+pnpm clean
 ```
 
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd turborepo-shadcn-ui
-npx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+### Run a single workspace
 
 ```sh
-npx turbo link
+pnpm --filter @apps/shadcn-console dev
+pnpm --filter web dev
+pnpm --filter docs dev
+pnpm --filter @apps/pendekin-router dev
+pnpm --filter @apps/pendekin-router dev-wrangler
 ```
 
-## Useful Links
+## UI Workflows
 
-Learn more about the power of Turborepo:
+### Add shadcn components (shared library)
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+```sh
+pnpm --filter @zizibot/shadcn ui
+```
 
-Learn more about shadcn/ui:
+### Generate a new component in `@zizibot/ui`
 
-- [Documentation](https://ui.shadcn.com/docs)
+```sh
+pnpm --filter @zizibot/ui generate:component
+```
+
+## Notes
+
+- Husky hooks run `turbo build` on pre-commit and pre-push.
