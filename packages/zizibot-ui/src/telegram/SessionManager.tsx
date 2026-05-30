@@ -3,15 +3,15 @@
 import { getUserInfo, validateTelegramSession } from '@zizibot/rest-client/internal/user-rest';
 import { MaterialProgressBar } from '@zizibot/shadcn/components/material-progress-bar';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@zizibot/shadcn/components/ui/dialog';
-import { useAppDispatch, useAppSelector } from '@zizibot/store/user/hook';
+import { useAppDispatch } from '@zizibot/store/user/hook';
 import { setId, setName, setRole } from '@zizibot/store/user/state';
 import { IF } from '@zizibot/ui/components/IF';
 import { setCookie } from '@zizibot/utils/cookie';
 import { logDebug } from '@zizibot/utils/logger';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const TelegramLogin: React.FC = () => {
+export default function TelegramLogin() {
   const [openDialog, setOpenDialog] = useState(false);
   const [showProgressBar, setShowProgressBar] = useState(true);
   const [progressMessage, setProgressMessage] = useState('');
@@ -91,6 +91,4 @@ const TelegramLogin: React.FC = () => {
       </DialogContent>
     </Dialog>
   );
-};
-
-export default TelegramLogin;
+}

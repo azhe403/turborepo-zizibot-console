@@ -7,7 +7,7 @@
     "build": "next build",
     "clean": "rimraf .next",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
     "@zizibot/ui": "workspace:*",
@@ -22,8 +22,7 @@
     "@types/node": "catalog:",
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.6",
+    "eslint": "catalog:",
     "typescript": "catalog:"
   }
 }

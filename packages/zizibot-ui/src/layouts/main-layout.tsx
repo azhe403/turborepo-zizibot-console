@@ -11,13 +11,13 @@ import ReduxProvider from '@zizibot/ui/providers/redux-provider';
 import SessionManager from '@zizibot/ui/telegram/session-manager';
 import { Moon, Sun, User } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import React, { Suspense } from 'react';
+import { Suspense, type ReactNode } from 'react';
 
 export default function MainLayout(
   {
     children
   }: {
-    children?: React.ReactNode;
+    children?: ReactNode;
   }) {
   const { setTheme } = useTheme();
 

@@ -3,27 +3,28 @@ packages:
   - packages/*
 
 catalog:
-  lucide-react: ^0.451.0
-  tailwindcss: ^3.4.13
-  eslint: ^8.57.0
-  prettier: ^3.3.3
-  typescript: 5.6.3
-  '@types/node': 20.11.6
+  '@next/eslint-plugin-next': ^16.2.6
   '@types/eslint': ^8
   '@types/jest': ^29
-  '@next/eslint-plugin-next': ^14
-  next: ^14.2.30
-  jest: ^29
+  '@types/node': 20.11.6
   axios: ^1.15.2
+  eslint: ^8.57.0
+  jest: ^29
+  lucide-react: ^0.451.0
+  next: ^16.2.6
+  prettier: ^3.3.3
+  tailwindcss: ^3.4.13
+  typescript: 5.6.3
 
 catalogs:
   react18:
-    react: ^18
-    react-dom: ^18
     '@types/react': ^18
     '@types/react-dom': ^18
+    react: ^18
+    react-dom: ^18
 
 onlyBuiltDependencies:
   - core-js-pure
   - esbuild
+  - sharp
   - workerd

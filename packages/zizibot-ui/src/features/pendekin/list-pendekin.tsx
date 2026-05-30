@@ -5,7 +5,7 @@ import { PendekinItem } from '@zizibot/contracts/rest-api/pendekin';
 import { useDeletePendekin, useGetListPendekin } from '@zizibot/rest-client/internal/pendekin-rest';
 import { DataTable } from '@zizibot/shadcn/components/data-table';
 import { Button } from '@zizibot/shadcn/components/ui/button';
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@zizibot/shadcn/components/ui/dropdown-menu';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from '@zizibot/shadcn/components/ui/dropdown-menu';
 import PageContainer from '@zizibot/ui/components/PageContainer';
 import FormCreatePendekin from '@zizibot/ui/features/pendekin/form-create-pendekin';
 import { MoreHorizontal } from 'lucide-react';
@@ -20,9 +20,7 @@ export default function ListPendekin() {
 
   const deletePendekin = (pendekinId: string) => {
     console.log('deletePendekin', pendekinId);
-    useDeletePendekin(pendekinId).then(r => {
-      loadPendekin();
-    });
+    useDeletePendekin(pendekinId).then(() => loadPendekin());
   };
 
   const columns: ColumnDef<PendekinItem>[] = [
